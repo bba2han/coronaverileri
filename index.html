@@ -1,0 +1,1819 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Canlı Coronavirüs (COVID-19) Verileri</title>
+        <meta name="description" content="Coronavirüs (COVID-19) hakkında dünyada hasta olan, ölen ve iyileşenler hakkında canlı veriler ve istatistikler. Ülkelere göre enfekte-hasta olan, iyileşen ve ölen kişi sayıları güncel olarak aktarılmaktadır." />
+        <meta name="robots" content="index, follow" />
+        <meta name="googlebot" content="index, follow" />
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="bootstrap.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+        <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://kit.fontawesome.com/9d91414c3c.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+	   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160772956-1"></script>
+	   <script>
+           window.dataLayer = window.dataLayer || [];
+           function gtag(){dataLayer.push(arguments);}
+           gtag('js', new Date());
+           gtag('config', 'UA-160772956-1');
+        </script>
+        
+        
+        <script>
+        $(document).ready(function(e) {
+        var limit = 2;
+	    $(".loadMore li").slice(0, limit).show();
+        $(document).on('click','#load_more',function(e){
+        limit += 2;
+        e.preventDefault();
+	    $(".loadMore li").slice(0, limit).slideDown();
+	   });
+	   //var lenght_name =  $(".loadMore li").length;
+        });
+        </script>
+      
+
+        
+    </head>
+    
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark display-7">
+            
+                <ul class="navbar-nav mx-auto">
+                        
+                    <li class="nav-item">
+                         <a class="nav-link" href="/"><i class="fas fa-home fa-sm"></i> Anasayfa</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/harita.html"><i class="fas fa-globe-americas fa-sm"></i> Harita</a>
+                    </li>
+                           
+                    <li class="nav-item">
+                        <a class="nav-link" href="/wiki.html"><i class="fas fa-file-alt fa-sm"></i> Wiki</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/hakkinda.html"><i class="fas fa-info-circle fa-sm"></i> Hakkında</a>
+                    </li>
+                    
+                </ul> 
+        </nav>
+
+
+        
+        <div class="pricing-header pt-4 pb-2 text-center text-white">
+            <h1 class="display-5">Canlı Coronavirüs (COVID-19) Verileri</h1>
+        </div>
+        
+        
+        <div class="paylas text-center pb-4">           
+                <!-- TwitterButton -->
+                <a href="https://twitter.com/intent/tweet/?text=Canl%C4%B1%20Coronavir%C3%BCs%20(COVID-19)%20Verileri&amp;url=https%3A%2F%2Fwww.coronaverileri.com" target="blank" class="social-margin" aria-label="Twitter'da Paylaş!">
+                  <div style="text-decoration: none"class="social-icon twitter">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                  </div> 
+                </a>
+                <!-- Facebook  Button -->
+                <a href="https://facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.coronaverileri.com" target="blank" class="social-margin" aria-label="Facebook'da Paylaş"> 
+                  <div class="social-icon facebook">
+                    <i class="fa fa-facebook" aria-hidden="true"></i> 
+                  </div>
+                </a>
+                <!-- Whatsapp Button -->
+                <a href="whatsapp://send?text=Canl%C4%B1%20Coronavir%C3%BCs%20(COVID-19)%20Verileri%20https%3A%2F%2Fwww.coronaverileri.com" target="blank" class="social-margin" aria-label="Whatsapp'da Paylaş!">
+                  <div class="social-icon whatsapp">
+                    <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                  </div>
+                </a>
+                <!-- Telegram Button -->
+                <a href="https://telegram.me/share/url?text=Canl%C4%B1%20Coronavir%C3%BCs%20(COVID-19)%20Verileri&amp;url=https%3A%2F%2Fwww.coronaverileri.com" class="social-margin" target="blank" aria-label="Telegram'da Paylaş!">
+                  <div class="social-icon telegram">
+                    <i class="fa fa-telegram" aria-hidden="true"></i>
+                  </div> 
+                </a>
+              <!-- Mail Button -->
+                <a href="mailto:?subject=Canl%C4%B1%20Coronavir%C3%BCs%20(COVID-19)%20Verileri&amp;body=https%3A%2F%2Fwww.coronaverileri.com" target="blank" class="social-margin" aria-label="Mail Gönder!">
+                  <div class="social-icon mail">
+                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                  </div>
+                </a>    
+        </div>
+        
+        
+        <div class="container">
+            
+            <div class="row">
+
+                <div class="col-md-6" id="counters">
+
+                    <div class="card text-white bg-dark">
+
+                        <h2 class="card-header text-center sz-1"><a style="font-size: 38px">🌍</a> Dünya Verileri</h2>
+
+                        <div class="card-body">
+
+                            <div class="card text-center mb-2 bg-warning" id="infection-counter-card">
+                                <div class="card-body">
+                                    <p class="card-text" style="margin-top: -10px">
+                                        <span class="display-5" id="confirmed">0</span><br>
+                                        <span class="display-7" id="new_confirmed">0</span>
+                                    </p>
+                                    <h4 class="card-title" style="margin-bottom: 0px">😷 ENFEKTE</h4>
+                                </div>
+                            </div>
+
+                            <div class="card text-center mb-2 bg-danger" id="death-counter-card">
+                                <div class="card-body">
+                                    <p class="card-text" style="margin-top: -10px">
+                                        <span class="display-5" id="deaths">0</span><br>
+                                        <span class="display-7" id="new_deaths">0</span>
+                                    </p>
+                                    <h4 class="card-title" style="margin-bottom: 0px">☠️ ÖLEN</h4>
+                                </div>
+                            </div>
+
+                            <div class="card text-center mb-2 bg-success" id="death-counter-card">
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        <span class="display-4" id="recovered">0</span>
+                                    </p>
+                                    <h4 class="card-title">❤️ İYİLEŞEN</h4>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6" id="counters">
+
+                    <div class="card text-white bg-dark">
+
+                        <h2 class="card-header text-center sz-1"><i class="em em-flag-tr sm" aria-role="presentation" aria-label="Turkey Flag"></i> Türkiye Verileri</h2>
+
+                        <div class="card-body">
+
+                            <div class="card text-center mb-2 bg-warning" id="infection-counter-card">
+                                <div class="card-body">
+                                    <p class="card-text" style="margin-top: -10px">
+                                        <span class="display-5" id="tr_confirmed">0</span><br>
+                                        <span class="display-7" id="tr_new_confirmed">0</span>
+                                    </p>
+                                    <h4 class="card-title" style="margin-bottom: 0px">😷 ENFEKTE</h4>
+                                </div>
+                            </div>
+
+                            <div class="card text-center mb-2 bg-danger" id="death-counter-card">
+                                <div class="card-body">
+                                    <p class="card-text" style="margin-top: -10px">
+                                        <span class="display-5" id="tr_deaths">0</span><br>
+                                        <span class="display-7" id="tr_new_deaths">0</span>
+                                    </p>
+                                    <h4 class="card-title" style="margin-bottom: 0px">☠️ ÖLEN</h4>
+                                </div>
+                            </div>
+
+                            <div class="card text-center mb-2 bg-success" id="death-counter-card">
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        <span class="display-4" id="tr_recovered">0</span>
+                                    </p>
+                                    <h4 class="card-title">❤️ İYİLEŞEN</h4>
+                                </div>
+                            </div>
+
+                           
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            
+            <div class="pb-md-4"></div>
+            
+            
+            <hr>
+            
+            <div class="pb-md-4"></div>
+            
+            <div class="row1">
+                
+                <ul class="loadMore list-group">
+                    
+                    
+                        
+                    <li><div class="card-deck">
+                
+                <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-us" aria-role="presentation" aria-label="ABD Bayrağı"></i> ABD</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="us_confirmed">0</span> <span class="display-8" id="us_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="us_deaths">0</span> <span class="display-8" id="us_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="us_recovered">0</span></h5>
+                            </div>
+                        </div>
+                        
+                 <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-es" aria-role="presentation" aria-label="İspanya Bayrağı"></i> İspanya</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="es_confirmed">0</span> <span class="display-8" id="es_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="es_deaths">0</span> <span class="display-8" id="es_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="es_recovered">0</span></h5>
+                            </div>
+                        </div>                  
+                 
+                        
+                 <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-it" aria-role="presentation" aria-label="İtalya Bayrağı"></i> İtalya</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="it_confirmed">0</span> <span class="display-8" id="it_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="it_deaths">0</span> <span class="display-8" id="it_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="it_recovered">0</span></h5>
+                            </div>
+                        </div>   
+                 
+                         
+                                             
+
+                    </div></li>
+                
+            
+                    
+                    
+                <li><div class="card-deck">  
+                    
+               <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-fr" aria-role="presentation" aria-label="Fransa Bayrağı"></i> Fransa</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="fr_confirmed">0 </span> <span class="display-8" id="fr_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="fr_deaths">0</span> <span class="display-8" id="fr_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="fr_recovered">0</span></h5>
+                            </div>
+                        </div>   
+                    
+                <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-de" aria-role="presentation" aria-label="Almanya Bayrağı"></i> Almanya</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="de_confirmed">0</span> <span class="display-8" id="de_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="de_deaths">0</span> <span class="display-8" id="de_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="de_recovered">0</span></h5>
+                            </div>
+                        </div>
+                    
+                <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-cn" aria-role="presentation" aria-label="Çin Bayrağı"></i> Çin</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="cn_confirmed">0</span> <span class="display-8" id="cn_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="cn_deaths">0</span> <span class="display-8" id="cn_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="cn_recovered">0</span></h5>
+                            </div>
+                        </div>    
+                     
+         
+                </div></li>
+                
+                
+                
+                <li><div class="card-deck">
+                
+                <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-ir" aria-role="presentation" aria-label="İran Bayrağı"></i> İran</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="ir_confirmed">0</span> <span class="display-8" id="ir_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="ir_deaths">0</span> <span class="display-8" id="ir_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="ir_recovered">0</span></h5>
+                            </div>
+                        </div>
+                    
+                    
+             <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-gb" aria-role="presentation" aria-label="İngiltere Bayrağı"></i> İngiltere</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="gb_confirmed">0</span> <span class="display-8" id="gb_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="gb_deaths">0</span> <span class="display-8" id="gb_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="gb_recovered">0</span></h5>
+                            </div>
+                        </div>
+                    
+                    
+                <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-ch" aria-role="presentation" aria-label="İsviçre Bayrağı"></i> İsviçre</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="ch_confirmed">0</span> <span class="display-8" id="ch_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="ch_deaths">0</span> <span class="display-8" id="ch_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="ch_recovered">0</span></h5>
+                            </div>
+                        </div>
+                
+                </div></li>
+                
+                
+                
+                
+                <li><div class="card-deck">
+                    
+                
+                <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-be" aria-role="presentation" aria-label="Belçika Bayrağı"></i> Belçika</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="be_confirmed">0</span> <span class="display-8" id="be_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="be_deaths">0</span> <span class="display-8" id="be_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="be_recovered">0</span></h5>
+                            </div>
+                        </div>    
+                    
+                    
+                <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-nl" aria-role="presentation" aria-label="Hollanda Bayrağı"></i> Hollanda</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="nl_confirmed">0 </span> <span class="display-8" id="nl_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="nl_deaths">0</span> <span class="display-8" id="nl_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="nl_recovered">0</span></h5>
+                            </div>
+                        </div>    
+                  
+                <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-ca" aria-role="presentation" aria-label="Kanada Bayrağı"></i> Kanada</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="ca_confirmed">0</span> <span class="display-8" id="ca_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="ca_deaths">0</span> <span class="display-8" id="ca_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="ca_recovered">0</span></h5>
+                            </div>
+                        </div>       
+                
+
+                </div></li>
+                    
+                    
+                    
+                    
+                  <li><div class="card-deck">
+                
+                 
+                <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-br" aria-role="presentation" aria-label="Brezilya Bayrağı"></i> Brezilya</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="br_confirmed">0</span> <span class="display-8" id="br_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="br_deaths">0</span> <span class="display-8" id="br_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="br_recovered">0</span></h5>
+                            </div>
+                        </div>   
+                      
+                <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-pt" aria-role="presentation" aria-label="Portekiz Bayrağı"></i> Portekiz</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="pt_confirmed">0</span> <span class="display-8" id="pt_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="pt_deaths">0</span> <span class="display-8" id="pt_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="pt_recovered">0</span></h5>
+                            </div>
+                        </div>
+                      
+                <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-at" aria-role="presentation" aria-label="Avusturya Bayrağı"></i> Avusturya</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="at_confirmed">0</span> <span class="display-8" id="at_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="at_deaths">0</span> <span class="display-8" id="at_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="at_recovered">0</span></h5>
+                            </div>
+                        </div>          
+                        
+                      
+
+                      
+                </div></li>    
+                
+                
+                    
+                     <li><div class="card-deck">
+               
+            
+            <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-kr" aria-role="presentation" aria-label="Güney Kore Bayrağı"></i> G. Kore</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="kr_confirmed">0</span> <span class="display-8" id="kr_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="kr_deaths">0</span> <span class="display-8" id="kr_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="kr_recovered">0</span></h5>
+                            </div>
+                        </div>          
+               
+                <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-au" aria-role="presentation" aria-label="Avustralya Flag"></i> Avustralya</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="au_confirmed">0</span> <span class="display-8" id="au_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="au_deaths">0</span> <span class="display-8" id="au_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="au_recovered">0</span></h5>
+                            </div>
+                        </div> 
+                         
+                         
+                <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-no" aria-role="presentation" aria-label="Norveç Bayrağı"></i> Norveç</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="no_confirmed">0</span> <span class="display-8" id="no_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="no_deaths">0</span> <span class="display-8" id="no_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="no_recovered">0</span></h5>
+                            </div>
+                        </div>
+                                              
+                   
+                </div></li>
+                    
+                    
+                    
+                     <li><div class="card-deck">
+                
+                  <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-se" aria-role="presentation" aria-label="İsveç Bayrağı"></i> İsveç</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="se_confirmed">0 </span> <span class="display-8" id="se_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="se_deaths">0</span> <span class="display-8" id="se_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="se_recovered">0</span></h5>
+                            </div>
+                        </div>
+                         
+                         
+                <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-my" aria-role="presentation" aria-label="Malezya Bayrağı"></i> Malezya</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="my_confirmed">0 </span> <span class="display-8" id="my_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="my_deaths">0</span> <span class="display-8" id="my_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="my_recovered">0</span></h5>
+                            </div>
+                        </div>         
+                         
+                 <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-dk" aria-role="presentation" aria-label="Danimarka Flag"></i> Danimarka</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="dk_confirmed">0</span> <span class="display-8" id="dk_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="dk_deaths">0</span> <span class="display-8" id="dk_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="dk_recovered">0</span></h5>
+                            </div>
+                        </div>              
+     
+                </div></li>
+                    
+                    
+                    
+                    
+                    <li><div class="card-deck">
+                
+                                          
+                <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-jp" aria-role="presentation" aria-label="Japonya Bayrağı"></i> Japonya</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="jp_confirmed">0</span> <span class="display-8" id="jp_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="jp_deaths">0</span> <span class="display-8" id="jp_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="jp_recovered">0</span></h5>
+                            </div>
+                        </div>
+                    
+                        
+                <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-cz" aria-role="presentation" aria-label="Çekya Bayrağı"></i> Çekya</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="cz_confirmed">0 </span> <span class="display-8" id="cz_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="cz_deaths">0</span> <span class="display-8" id="cz_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="cz_recovered">0</span></h5>
+                            </div>
+                        </div>    
+                    
+                        
+                <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-il" aria-role="presentation" aria-label="İsrail Bayrağı"></i> İsrail</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="il_confirmed">0</span> <span class="display-8" id="il_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="il_deaths">0</span> <span class="display-8" id="il_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="il_recovered">0</span></h5>
+                            </div>
+                        </div>        
+
+                </div></li>
+                    
+                    
+                    
+                    
+                       <li><div class="card-deck">
+                
+                <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-ie" aria-role="presentation" aria-label="İrlanda Bayrağı"></i> İrlanda</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="ie_confirmed">0</span> <span class="display-8" id="ie_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="ie_deaths">0</span> <span class="display-8" id="ie_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="ie_recovered">0</span></h5>
+                            </div>
+                        </div>
+                    
+                <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-pk" aria-role="presentation" aria-label="Pakistan Bayrağı"></i> Pakistan</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="pk_confirmed">0</span> <span class="display-8" id="pk_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="pk_deaths">0</span> <span class="display-8" id="pk_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="pk_recovered">0</span></h5>
+                            </div>
+                        </div>
+                    
+                <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-lu" aria-role="presentation" aria-label="Lüksemburg Bayrağı"></i> Lüksemburg</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="lu_confirmed">0 </span> <span class="display-8" id="lu_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="lu_deaths">0</span> <span class="display-8" id="lu_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="lu_recovered">0</span></h5>
+                            </div>
+                        </div>
+                         
+                </div></li>
+                
+                    
+                    
+                <li><div class="card-deck">
+                
+                <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-fi" aria-role="presentation" aria-label="Finlandiya Bayrağı"></i> Finlandiya</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="fi_confirmed">0</span> <span class="display-8" id="fi_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="fi_deaths">0</span> <span class="display-8" id="fi_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="fi_recovered">0</span></h5>
+                            </div>
+                        </div>
+                    
+                <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-ec" aria-role="presentation" aria-label="Ekvador Bayrağı"></i> Ekvador</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="ec_confirmed">0 </span> <span class="display-8" id="ec_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="ec_deaths">0</span> <span class="display-8" id="ec_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="ec_recovered">0</span></h5>
+                            </div>
+                        </div>            
+                    
+                           
+                 <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-qa" aria-role="presentation" aria-label="Katar Bayrağı"></i> Katar</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="qa_confirmed">0</span> <span class="display-8" id="qa_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="qa_deaths">0</span> <span class="display-8" id="qa_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="qa_recovered">0</span></h5>
+                            </div>
+                        </div>       
+                    
+                </div></li>
+                    
+                    
+                    
+                    <li><div class="card-deck">
+                
+                <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-is" aria-role="presentation" aria-label="İzlanda Bayrağı"></i> İzlanda</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="is_confirmed">0</span> <span class="display-8" id="is_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="is_deaths">0</span> <span class="display-8" id="is_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="is_recovered">0</span></h5>
+                            </div>
+                        </div>
+                    
+                        
+                <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-id" aria-role="presentation" aria-label="Endonezya Bayrağı"></i> Endonezya</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="id_confirmed">0</span> <span class="display-8" id="id_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="id_deaths">0</span> <span class="display-8" id="id_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="id_recovered">0</span></h5>
+                            </div>
+                        </div>
+                    
+                        
+                <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-sg" aria-role="presentation" aria-label="Singapur Bayrağı"></i> Singapur</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="sg_confirmed">0 </span> <span class="display-8" id="sg_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="sg_deaths">0</span> <span class="display-8" id="sg_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="sg_recovered">0</span></h5>
+                            </div>
+                        </div>    
+                    
+                </div></li>
+                    
+                    
+                    
+                    <li><div class="card-deck">
+    
+                <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-cl" aria-role="presentation" aria-label="Şili Bayrağı"></i> Şili</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="cl_confirmed">0</span> <span class="display-8" id="cl_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="cl_deaths">0</span> <span class="display-8" id="cl_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="cl_recovered">0</span></h5>
+                            </div>
+                        </div>   
+                           
+                        
+                     <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-pl" aria-role="presentation" aria-label="Polonya Bayrağı"></i> Polonya</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="pl_confirmed">0</span> <span class="display-8" id="pl_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="pl_deaths">0</span> <span class="display-8" id="pl_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="pl_recovered">0</span></h5>
+                            </div>
+                        </div>       
+                        
+                        
+                <div class="card text-white bg-darkk mb-3" style="width: 25rem;">
+                    <div class="card-header text-center"><h5><i class="em em-flag-gr" aria-role="presentation" aria-label="Yunanistan Bayrağı"></i> Yunanistan</h5></div>
+                          <div class="card-body">
+                              <h5 class="font-weight-lighter text-center">😷 <span id="gr_confirmed">0</span> <span class="display-8" id="gr_new_confirmed">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">☠️ <span id="gr_deaths">0</span> <span class="display-8" id="gr_new_deaths">0</span></h5>
+                              <h5 class="font-weight-lighter text-center">❤️ <span id="gr_recovered">0</span></h5>
+                            </div>
+                        </div>
+
+                </div></li>
+                
+                
+                    </ul>
+                </div>
+
+        </div>
+            
+        
+        <div class="text-center"><a style="font-size: 20px" name="load_more" id="load_more" class="btn btn-info btn-lg text-white"><p></p>Daha fazla ülke getir<p></p></a></div>
+        
+        <footer class="footer">
+            
+            <div class="pb-md-3"></div>
+                    <hr>
+            <div class="pb-md-1"></div>
+            
+                
+        
+            <div class="container">
+           
+                    <p class="text-white text-monospace text-center">Sevgiyle <i class="fa fa-heart-o"></i> Hazırlandı</p>
+
+            
+            </div>
+             
+            <div class="pb-md-2"></div>
+                
+        </footer>
+
+
+        <!-- jQuery -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+        
+        <!-- Set cards datas -->
+        <script>
+            //GET - Number of confirmed, deaths and recovered in the world
+            fetch("https://corona.lmao.ninja/v2/all")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases + 484;
+                    var deaths = out.deaths + 84;
+                    var recovered = out.recovered + 148;
+                    var newConfirmed = out.todayCases;
+                    var newDeaths = out.todayDeaths;
+
+                    console.log('Enfekte: ', confirmed)
+                    document.getElementById("confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('Ölen: ', deaths)
+                    document.getElementById("deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('İyileşen: ', recovered)
+                    document.getElementById("recovered").innerHTML = numberWithCommas(recovered)
+                    
+                    console.log('Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('Yeni Ölümler: ', newDeaths)
+                    document.getElementById("new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+
+            //GET - Number of confirmed, deaths and recovered in Turkey
+            fetch("https://corona.lmao.ninja/v2/countries/turkey")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+                    
+                    console.log('TR - Enfekte: ', confirmed)
+                    document.getElementById("tr_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('TR - Ölümler: ', deaths)
+                    document.getElementById("tr_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('TR - İyileşen: ', recovered)
+                    document.getElementById("tr_recovered").innerHTML = numberWithCommas(recovered)
+                    
+                    console.log('TR - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("tr_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('TR - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("tr_new_deaths").innerHTML = "(+" + newDeaths + ")"
+        
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in china
+            fetch("https://corona.lmao.ninja/v2/countries/china")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('CN - Enfekte: ', confirmed)
+                    document.getElementById("cn_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('CN - Ölümler: ', deaths)
+                    document.getElementById("cn_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('CN - İyileşen: ', recovered)
+                    document.getElementById("cn_recovered").innerHTML = numberWithCommas(recovered)
+                    
+                    console.log('CN - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("cn_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('CN - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("cn_new_deaths").innerHTML = "(+" + newDeaths + ")"
+                
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in italy
+            fetch("https://corona.lmao.ninja/v2/countries/italy")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('IT - Enfekte: ', confirmed)
+                    document.getElementById("it_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('IT - Ölümler: ', deaths)
+                    document.getElementById("it_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('IT - İyileşen: ', recovered)
+                    document.getElementById("it_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('IT - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("it_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('IT - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("it_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+        
+            //GET - Number of confirmed, deaths and recovered in iran
+            fetch("https://corona.lmao.ninja/v2/countries/iran")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('IR - Enfekte: ', confirmed)
+                    document.getElementById("ir_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('IR - Ölümler: ', deaths)
+                    document.getElementById("ir_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('IR - İyileşen: ', recovered)
+                    document.getElementById("ir_recovered").innerHTML = numberWithCommas(recovered)
+                
+                     console.log('IR - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("ir_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('IR - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("ir_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+
+            //GET - Number of confirmed, deaths and recovered in spain
+            fetch("https://corona.lmao.ninja/v2/countries/spain")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('ES - Enfekte: ', confirmed)
+                    document.getElementById("es_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('ES - Ölümler: ', deaths)
+                    document.getElementById("es_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('ES - İyileşen: ', recovered)
+                    document.getElementById("es_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('ES - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("es_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('ES - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("es_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in germany
+            fetch("https://corona.lmao.ninja/v2/countries/germany")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('DE - Enfekte: ', confirmed)
+                    document.getElementById("de_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('DE - Ölümler: ', deaths)
+                    document.getElementById("de_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('DE - İyileşen: ', recovered)
+                    document.getElementById("de_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('DE - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("de_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('DE - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("de_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in south korea
+            fetch("https://corona.lmao.ninja/v2/countries/kor")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('KR - Enfekte: ', confirmed)
+                    document.getElementById("kr_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('KR - Ölümler: ', deaths)
+                    document.getElementById("kr_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('KR - İyileşen: ', recovered)
+                    document.getElementById("kr_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('KR - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("kr_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('KR - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("kr_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in france
+            fetch("https://corona.lmao.ninja/v2/countries/france")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('FR - Enfekte: ', confirmed)
+                    document.getElementById("fr_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('FR - Ölümler: ', deaths)
+                    document.getElementById("fr_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('FR - İyileşen: ', recovered)
+                    document.getElementById("fr_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('FR - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("fr_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('FR - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("fr_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in usa
+            fetch("https://corona.lmao.ninja/v2/countries/us")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('US - Enfekte: ', confirmed)
+                    document.getElementById("us_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('US - Ölümler: ', deaths)
+                    document.getElementById("us_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('US - İyileşen: ', recovered)
+                    document.getElementById("us_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('US - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("us_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('US - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("us_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in switzerland
+            fetch("https://corona.lmao.ninja/v2/countries/switzerland")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('CH - Enfekte: ', confirmed)
+                    document.getElementById("ch_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('CH - Ölümler: ', deaths)
+                    document.getElementById("ch_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('CH - İyileşen: ', recovered)
+                    document.getElementById("ch_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('CH - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("ch_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('CH - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("ch_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in uk
+            fetch("https://corona.lmao.ninja/v2/countries/uk")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('GB - Enfekte: ', confirmed)
+                    document.getElementById("gb_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('GB - Ölümler: ', deaths)
+                    document.getElementById("gb_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('GB - İyileşen: ', recovered)
+                    document.getElementById("gb_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('GB - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("gb_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('GB - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("gb_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in netherlands
+            fetch("https://corona.lmao.ninja/v2/countries/netherlands")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('NL - Enfekte: ', confirmed)
+                    document.getElementById("nl_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('NL - Ölümler: ', deaths)
+                    document.getElementById("nl_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('NL - İyileşen: ', recovered)
+                    document.getElementById("nl_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('NL - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("nl_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('NL - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("nl_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in austria
+            fetch("https://corona.lmao.ninja/v2/countries/austria")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('AT - Enfekte: ', confirmed)
+                    document.getElementById("at_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('AT - Ölümler: ', deaths)
+                    document.getElementById("at_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('AT - İyileşen: ', recovered)
+                    document.getElementById("at_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('AT - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("at_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('AT - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("at_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in belgium
+            fetch("https://corona.lmao.ninja/v2/countries/belgium")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('BE - Enfekte: ', confirmed)
+                    document.getElementById("be_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('BE - Ölümler: ', deaths)
+                    document.getElementById("be_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('BE - İyileşen: ', recovered)
+                    document.getElementById("be_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('BE - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("be_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('BE - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("be_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in belgium
+            fetch("https://corona.lmao.ninja/v2/countries/norway")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('NO - Enfekte: ', confirmed)
+                    document.getElementById("no_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('NO - Ölümler: ', deaths)
+                    document.getElementById("no_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('NO - İyileşen: ', recovered)
+                    document.getElementById("no_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('NO - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("no_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('NO - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("no_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+             //GET - Number of confirmed, deaths and recovered in sweden
+            fetch("https://corona.lmao.ninja/v2/countries/sweden")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('SE - Enfekte: ', confirmed)
+                    document.getElementById("se_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('SE - Ölümler: ', deaths)
+                    document.getElementById("se_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('SE - İyileşen: ', recovered)
+                    document.getElementById("se_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('SE - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("se_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('SE - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("se_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in sweden
+            fetch("https://corona.lmao.ninja/v2/countries/denmark")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('DK - Enfekte: ', confirmed)
+                    document.getElementById("dk_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('DK - Ölümler: ', deaths)
+                    document.getElementById("dk_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('DK - İyileşen: ', recovered)
+                    document.getElementById("dk_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('DK - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("dk_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('DK - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("dk_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in portugal
+            fetch("https://corona.lmao.ninja/v2/countries/portugal")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('PT - Enfekte: ', confirmed)
+                    document.getElementById("pt_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('PT - Ölümler: ', deaths)
+                    document.getElementById("pt_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('PT - İyileşen: ', recovered)
+                    document.getElementById("pt_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('PT - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("pt_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('PT - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("pt_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in canada
+            fetch("https://corona.lmao.ninja/v2/countries/canada")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('CA - Enfekte: ', confirmed)
+                    document.getElementById("ca_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('CA - Ölümler: ', deaths)
+                    document.getElementById("ca_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('CA - İyileşen: ', recovered)
+                    document.getElementById("ca_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('CA - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("ca_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('CA - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("ca_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+             //GET - Number of confirmed, deaths and recovered in malaysia
+            fetch("https://corona.lmao.ninja/v2/countries/malaysia")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('MY - Enfekte: ', confirmed)
+                    document.getElementById("my_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('MY - Ölümler: ', deaths)
+                    document.getElementById("my_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('MY - İyileşen: ', recovered)
+                    document.getElementById("my_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('MY - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("my_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('MY - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("my_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+              //GET - Number of confirmed, deaths and recovered in australia
+            fetch("https://corona.lmao.ninja/v2/countries/australia")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('AU - Enfekte: ', confirmed)
+                    document.getElementById("au_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('AU - Ölümler: ', deaths)
+                    document.getElementById("au_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('AU - İyileşen: ', recovered)
+                    document.getElementById("au_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('AU - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("au_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('AU - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("au_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+               
+            //GET - Number of confirmed, deaths and recovered in australia
+            fetch("https://corona.lmao.ninja/v2/countries/australia")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('AU - Enfekte: ', confirmed)
+                    document.getElementById("au_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('AU - Ölümler: ', deaths)
+                    document.getElementById("au_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('AU - İyileşen: ', recovered)
+                    document.getElementById("au_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('AU - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("au_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('AU - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("au_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+          
+            //GET - Number of confirmed, deaths and recovered in japan
+            fetch("https://corona.lmao.ninja/v2/countries/japan")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('JP - Enfekte: ', confirmed)
+                    document.getElementById("jp_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('JP - Ölümler: ', deaths)
+                    document.getElementById("jp_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('JP - İyileşen: ', recovered)
+                    document.getElementById("jp_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('JP - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("jp_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('JP - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("jp_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in brazil
+            fetch("https://corona.lmao.ninja/v2/countries/brazil")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('BR - Enfekte: ', confirmed)
+                    document.getElementById("br_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('BR - Ölümler: ', deaths)
+                    document.getElementById("br_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('BR - İyileşen: ', recovered)
+                    document.getElementById("br_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('BR - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("br_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('BR - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("br_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in czechia
+            fetch("https://corona.lmao.ninja/v2/countries/czechia")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('CZ - Enfekte: ', confirmed)
+                    document.getElementById("cz_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('CZ - Ölümler: ', deaths)
+                    document.getElementById("cz_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('CZ - İyileşen: ', recovered)
+                    document.getElementById("cz_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('CZ - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("cz_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('CZ - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("cz_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in israel
+            fetch("https://corona.lmao.ninja/v2/countries/israel")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('IL - Enfekte: ', confirmed)
+                    document.getElementById("il_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('IL - Ölümler: ', deaths)
+                    document.getElementById("il_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('IL - İyileşen: ', recovered)
+                    document.getElementById("il_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('IL - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("il_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('IL - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("il_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in ireland
+            fetch("https://corona.lmao.ninja/v2/countries/ireland")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('IE - Enfekte: ', confirmed)
+                    document.getElementById("ie_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('IE - Ölümler: ', deaths)
+                    document.getElementById("ie_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('IE - İyileşen: ', recovered)
+                    document.getElementById("ie_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('IE - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("ie_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('IE - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("ie_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in pakistan
+            fetch("https://corona.lmao.ninja/v2/countries/pakistan")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('PK - Enfekte: ', confirmed)
+                    document.getElementById("pk_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('PK - Ölümler: ', deaths)
+                    document.getElementById("pk_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('PK - İyileşen: ', recovered)
+                    document.getElementById("pk_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('PK - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("pk_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('PK - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("pk_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in luxembourg
+            fetch("https://corona.lmao.ninja/v2/countries/luxembourg")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('LU - Enfekte: ', confirmed)
+                    document.getElementById("lu_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('LU - Ölümler: ', deaths)
+                    document.getElementById("lu_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('LU - İyileşen: ', recovered)
+                    document.getElementById("lu_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('LU - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("lu_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('LU - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("lu_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in chile
+            fetch("https://corona.lmao.ninja/v2/countries/chile")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('CL - Enfekte: ', confirmed)
+                    document.getElementById("cl_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('CL - Ölümler: ', deaths)
+                    document.getElementById("cl_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('CL - İyileşen: ', recovered)
+                    document.getElementById("cl_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('CL - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("cl_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('CL - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("cl_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in poland
+            fetch("https://corona.lmao.ninja/v2/countries/poland")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('PL - Enfekte: ', confirmed)
+                    document.getElementById("pl_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('PL - Ölümler: ', deaths)
+                    document.getElementById("pl_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('PL - İyileşen: ', recovered)
+                    document.getElementById("pl_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('PL - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("pl_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('PL - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("pl_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in greece
+            fetch("https://corona.lmao.ninja/v2/countries/greece")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('GR - Enfekte: ', confirmed)
+                    document.getElementById("gr_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('GR - Ölümler: ', deaths)
+                    document.getElementById("gr_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('GR - İyileşen: ', recovered)
+                    document.getElementById("gr_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('GR - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("gr_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('GR - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("gr_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in finland
+            fetch("https://corona.lmao.ninja/v2/countries/finland")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('FI - Enfekte: ', confirmed)
+                    document.getElementById("fi_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('FI - Ölümler: ', deaths)
+                    document.getElementById("fi_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('FI - İyileşen: ', recovered)
+                    document.getElementById("fi_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('FI - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("fi_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('FI - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("fi_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in ecuador
+            fetch("https://corona.lmao.ninja/v2/countries/ecuador")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('EC - Enfekte: ', confirmed)
+                    document.getElementById("ec_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('EC - Ölümler: ', deaths)
+                    document.getElementById("ec_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('EC - İyileşen: ', recovered)
+                    document.getElementById("ec_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('EC - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("ec_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('EC - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("ec_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in qatar
+            fetch("https://corona.lmao.ninja/v2/countries/qatar")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('QA - Enfekte: ', confirmed)
+                    document.getElementById("qa_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('QA - Ölümler: ', deaths)
+                    document.getElementById("qa_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('QA - İyileşen: ', recovered)
+                    document.getElementById("qa_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('QA - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("qa_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('QA - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("qa_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in iceland
+            fetch("https://corona.lmao.ninja/v2/countries/iceland")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('IS - Enfekte: ', confirmed)
+                    document.getElementById("is_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('IS - Ölümler: ', deaths)
+                    document.getElementById("is_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('IS - İyileşen: ', recovered)
+                    document.getElementById("is_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('IS - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("is_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('IS - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("is_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in indonesia
+            fetch("https://corona.lmao.ninja/v2/countries/indonesia")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('ID - Enfekte: ', confirmed)
+                    document.getElementById("id_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('ID - Ölümler: ', deaths)
+                    document.getElementById("id_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('ID - İyileşen: ', recovered)
+                    document.getElementById("id_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('ID - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("id_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('ID - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("id_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            //GET - Number of confirmed, deaths and recovered in singapore
+            fetch("https://corona.lmao.ninja/v2/countries/singapore")
+                .then(res => res.json())
+                .then((out) => {
+
+                    var confirmed = out.cases
+                    var deaths = out.deaths
+                    var recovered = out.recovered
+                    var newConfirmed = out.todayCases
+                    var newDeaths = out.todayDeaths
+
+                    console.log('SG - Enfekte: ', confirmed)
+                    document.getElementById("sg_confirmed").innerHTML = numberWithCommas(confirmed)
+
+                    console.log('SG - Ölümler: ', deaths)
+                    document.getElementById("sg_deaths").innerHTML = numberWithCommas(deaths)
+
+                    console.log('SG - İyileşen: ', recovered)
+                    document.getElementById("sg_recovered").innerHTML = numberWithCommas(recovered)
+                
+                    console.log('SG - Yeni Vakalar: ', newConfirmed)
+                    document.getElementById("sg_new_confirmed").innerHTML = "(+" + newConfirmed + ")"
+                    
+                    console.log('SG - Yeni Ölümler: ', newDeaths)
+                    document.getElementById("sg_new_deaths").innerHTML = "(+" + newDeaths + ")"
+
+                })
+                .catch(err => console.error(err));
+            
+            
+            
+            function numberWithCommas(str) {
+                return str.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+        </script>
+
+
+    </body>
+
+</html>

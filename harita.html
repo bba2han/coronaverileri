@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Harita - Canlı Coronvirüs (COVID-19) Verileri</title>
+        <meta name="description" content="Coronavirüs (COVID-19) hakkında dünyada hasta olan, ölen ve iyileşenler dünya haritası üzerinden veriler ve istatistikler canlı olarak aktarılmaktadır." />
+        <meta name="robots" content="index, follow" />
+        <meta name="googlebot" content="index, follow" />
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="bootstrap.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+        <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/9d91414c3c.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+        <script src="datamaps.world.min.js"></script>
+        
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+	   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160772956-1"></script>
+	   <script>
+           window.dataLayer = window.dataLayer || [];
+           function gtag(){dataLayer.push(arguments);}
+           gtag('js', new Date());
+           gtag('config', 'UA-160772956-1');
+        </script>
+        
+        
+        
+    </head>
+    
+    
+    
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark display-7">
+            
+                <ul class="navbar-nav mx-auto">
+                        
+                    <li class="nav-item">
+                         <a class="nav-link" href="/"><i class="fas fa-home fa-sm"></i> Anasayfa</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/harita.html"><i class="fas fa-globe-americas fa-sm"></i> Harita</a>
+                    </li>
+                           
+                    <li class="nav-item">
+                        <a class="nav-link" href="/wiki.html"><i class="fas fa-file-alt fa-sm"></i> Wiki</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/hakkinda.html"><i class="fas fa-info-circle fa-sm"></i> Hakkında</a>
+                    </li>
+                    
+                </ul> 
+        </nav>
+        
+        
+        
+    <div class="container">        
+        
+                <div class="pb-md-5"></div>
+        
+                <div class="card bg-dark">
+                <h1 class="card-header text-center display-6 text-white"><i class="fas fa-globe-americas"></i> Harita</h1>
+                        <div class="card-body">
+                            
+                            <div id="map" style="width: 1128x; height: 535px; position:relative"></div>
+                            <p class="text-center font-italic" style="margin-bottom: -10px; margin-top: 5px; font-size: 16px;">Daha iyi bir deneyim için telefonunuzu yan çevirin.</p>
+                        </div>
+                </div>
+    </div>
+                
+                
+    
+    
+    <footer class="footer">
+            
+                <div class="pb-md-3"></div>
+                        <hr>
+                <div class="pb-md-1"></div>
+            
+                <div class="container">
+           
+                    <p class="text-white text-monospace text-center">Sevgiyle <i class="fa fa-heart-o"></i> Hazırlandı</p>
+
+                </div>
+             
+                <div class="pb-md-2"></div>
+                
+    </footer>
+
+        
+ <script>
+        (async() => {
+        fetch("https://corona.lmao.ninja/v2/countries")
+        .then(res => res.json())
+        .then((out) => {
+       
+        var turkey = out.find(({country}) => country === 'Turkey')
+        var tur_cases = turkey.cases
+        var tur_deaths = turkey.deaths
+        var tur_recovered = turkey.recovered
+        
+        var china = out.find(({country}) => country === 'China');
+        var chn_cases = china.cases
+        var chn_deaths = china.deaths
+        var chn_recovered = china.recovered
+      
+        var italy = out.find(({country}) => country === 'Italy');
+        var ita_cases = italy.cases
+        var ita_deaths = italy.deaths
+        var ita_recovered = italy.recovered
+        
+        var usa = out.find(({country}) => country === 'USA');
+        var usa_cases = usa.cases
+        var usa_deaths = usa.deaths
+        var usa_recovered = usa.recovered
+		
+		var esp = out.find(({country}) => country === 'Spain');
+        var esp_cases = esp.cases
+        var esp_deaths = esp.deaths
+        var esp_recovered = esp.recovered
+
+		var deu = out.find(({country}) => country === 'Germany');
+        var deu_cases = deu.cases
+        var deu_deaths = deu.deaths
+        var deu_recovered = deu.recovered
+
+		var irn = out.find(({country}) => country === 'Iran');
+        var irn_cases = irn.cases
+        var irn_deaths = irn.deaths
+        var irn_recovered = irn.recovered
+    
+		var fra = out.find(({country}) => country === 'France');
+        var fra_cases = fra.cases
+        var fra_deaths = fra.deaths
+        var fra_recovered = fra.recovered
+
+		var kor = out.find(({country}) => country === 'S. Korea');
+        var kor_cases = kor.cases
+        var kor_deaths = kor.deaths
+        var kor_recovered = kor.recovered
+
+		var che = out.find(({country}) => country === 'Switzerland');
+        var che_cases = che.cases
+        var che_deaths = che.deaths
+        var che_recovered = che.recovered
+
+		var gbr = out.find(({country}) => country === 'UK');
+        var gbr_cases = gbr.cases
+        var gbr_deaths = gbr.deaths
+        var gbr_recovered = gbr.recovered
+		
+      	var nld = out.find(({country}) => country === 'Netherlands');
+        var nld_cases = nld.cases
+        var nld_deaths = nld.deaths
+        var nld_recovered = nld.recovered
+		
+		var aut = out.find(({country}) => country === 'Austria');
+        var aut_cases = aut.cases
+        var aut_deaths = aut.deaths
+        var aut_recovered = aut.recovered
+		
+		var bel = out.find(({country}) => country === 'Belgium');
+        var bel_cases = bel.cases
+        var bel_deaths = bel.deaths
+        var bel_recovered = bel.recovered
+		
+		var nor = out.find(({country}) => country === 'Norway');
+        var nor_cases = nor.cases
+        var nor_deaths = nor.deaths
+        var nor_recovered = nor.recovered
+		
+		var swe = out.find(({country}) => country === 'Sweden');
+        var swe_cases = swe.cases
+        var swe_deaths = swe.deaths
+        var swe_recovered = swe.recovered
+		
+		var prt = out.find(({country}) => country === 'Portugal');
+        var prt_cases = prt.cases
+        var prt_deaths = prt.deaths
+        var prt_recovered = prt.recovered
+		
+		var bra = out.find(({country}) => country === 'Brazil');
+        var bra_cases = bra.cases
+        var bra_deaths = bra.deaths
+        var bra_recovered = bra.recovered
+		
+		var can = out.find(({country}) => country === 'Canada');
+        var can_cases = can.cases
+        var can_deaths = can.deaths
+        var can_recovered = can.recovered
+		
+		var dnk = out.find(({country}) => country === 'Denmark');
+        var dnk_cases = dnk.cases
+        var dnk_deaths = dnk.deaths
+        var dnk_recovered = dnk.recovered
+		
+		var aus = out.find(({country}) => country === 'Australia');
+        var aus_cases = aus.cases
+        var aus_deaths = aus.deaths
+        var aus_recovered = aus.recovered
+		
+		var mys = out.find(({country}) => country === 'Malaysia');
+        var mys_cases = mys.cases
+        var mys_deaths = mys.deaths
+        var mys_recovered = mys.recovered
+		
+		var cze = out.find(({country}) => country === 'Czechia');
+        var cze_cases = cze.cases
+        var cze_deaths = cze.deaths
+        var cze_recovered = cze.recovered
+		
+		var jpn = out.find(({country}) => country === 'Japan');
+        var jpn_cases = jpn.cases
+        var jpn_deaths = jpn.deaths
+        var jpn_recovered = jpn.recovered
+		
+		var isr = out.find(({country}) => country === 'Israel');
+        var isr_cases = isr.cases
+        var isr_deaths = isr.deaths
+        var isr_recovered = isr.recovered
+		
+		var irl = out.find(({country}) => country === 'Ireland');
+        var irl_cases = irl.cases
+        var irl_deaths = irl.deaths
+        var irl_recovered = irl.recovered
+		
+		var lux = out.find(({country}) => country === 'Luxembourg');
+        var lux_cases = lux.cases
+        var lux_deaths = lux.deaths
+        var lux_recovered = lux.recovered
+		
+		var ecu = out.find(({country}) => country === 'Ecuador');
+        var ecu_cases = ecu.cases
+        var ecu_deaths = ecu.deaths
+        var ecu_recovered = ecu.recovered
+		
+		var pak = out.find(({country}) => country === 'Pakistan');
+        var pak_cases = pak.cases
+        var pak_deaths = pak.deaths
+        var pak_recovered = pak.recovered
+		
+		var pol = out.find(({country}) => country === 'Poland');
+        var pol_cases = pol.cases
+        var pol_deaths = pol.deaths
+        var pol_recovered = pol.recovered
+		
+		var chl = out.find(({country}) => country === 'Chile');
+        var chl_cases = chl.cases
+        var chl_deaths = chl.deaths
+        var chl_recovered = chl.recovered
+		
+		var fin = out.find(({country}) => country === 'Finland');
+        var fin_cases = fin.cases
+        var fin_deaths = fin.deaths
+        var fin_recovered = fin.recovered
+		
+		var grc = out.find(({country}) => country === 'Greece');
+        var grc_cases = grc.cases
+        var grc_deaths = grc.deaths
+        var grc_recovered = grc.recovered
+		
+		var tha = out.find(({country}) => country === 'Thailand');
+        var tha_cases = tha.cases
+        var tha_deaths = tha.deaths
+        var tha_recovered = tha.recovered
+		
+		var isl = out.find(({country}) => country === 'Iceland');
+        var isl_cases = isl.cases
+        var isl_deaths = isl.deaths
+        var isl_recovered = isl.recovered
+		
+		var idn = out.find(({country}) => country === 'Indonesia');
+        var idn_cases = idn.cases
+        var idn_deaths = idn.deaths
+        var idn_recovered = idn.recovered
+		
+		var sau = out.find(({country}) => country === 'Saudi Arabia');
+        var sau_cases = sau.cases
+        var sau_deaths = sau.deaths
+        var sau_recovered = sau.recovered
+		
+		var qat = out.find(({country}) => country === 'Qatar');
+        var qat_cases = qat.cases
+        var qat_deaths = qat.deaths
+        var qat_recovered = qat.recovered
+		
+		var rou = out.find(({country}) => country === 'Romania');
+        var rou_cases = rou.cases
+        var rou_deaths = rou.deaths
+        var rou_recovered = rou.recovered
+		
+		var svn = out.find(({country}) => country === 'Slovenia');
+        var svn_cases = svn.cases
+        var svn_deaths = svn.deaths
+        var svn_recovered = svn.recovered
+		
+		var ind = out.find(({country}) => country === 'India');
+        var ind_cases = ind.cases
+        var ind_deaths = ind.deaths
+        var ind_recovered = ind.recovered
+		
+		var phl = out.find(({country}) => country === 'Philippines');
+        var phl_cases = phl.cases
+        var phl_deaths = phl.deaths
+        var phl_recovered = phl.recovered
+		
+		var rus = out.find(({country}) => country === 'Russia');
+        var rus_cases = rus.cases
+        var rus_deaths = rus.deaths
+        var rus_recovered = rus.recovered
+		
+		var per = out.find(({country}) => country === 'Peru');
+        var per_cases = per.cases
+        var per_deaths = per.deaths
+        var per_recovered = per.recovered
+		
+		var egy = out.find(({country}) => country === 'Egypt');
+        var egy_cases = egy.cases
+        var egy_deaths = egy.deaths
+        var egy_recovered = egy.recovered
+		
+		var est = out.find(({country}) => country === 'Estonia');
+        var est_cases = est.cases
+        var est_deaths = est.deaths
+        var est_recovered = est.recovered
+		
+		var zaf = out.find(({country}) => country === 'South Africa');
+        var zaf_cases = zaf.cases
+        var zaf_deaths = zaf.deaths
+        var zaf_recovered = zaf.recovered
+		
+		var hrv = out.find(({country}) => country === 'Croatia');
+        var hrv_cases = hrv.cases
+        var hrv_deaths = hrv.deaths
+        var hrv_recovered = hrv.recovered
+		
+		var mex = out.find(({country}) => country === 'Mexico');
+        var mex_cases = mex.cases
+        var mex_deaths = mex.deaths
+        var mex_recovered = mex.recovered
+		
+		var lbn = out.find(({country}) => country === 'Lebanon');
+        var lbn_cases = lbn.cases
+        var lbn_deaths = lbn.deaths
+        var lbn_recovered = lbn.recovered
+		
+		var pan = out.find(({country}) => country === 'Panama');
+        var pan_cases = pan.cases
+        var pan_deaths = pan.deaths
+        var pan_recovered = pan.recovered
+		
+		var irq = out.find(({country}) => country === 'Iraq');
+        var irq_cases = irq.cases
+        var irq_deaths = irq.deaths
+        var irq_recovered = irq.recovered
+		
+		var col = out.find(({country}) => country === 'Colombia');
+        var col_cases = col.cases
+        var col_deaths = col.deaths
+        var col_recovered = col.recovered
+		
+		var arg = out.find(({country}) => country === 'Argentina');
+        var arg_cases = arg.cases
+        var arg_deaths = arg.deaths
+        var arg_recovered = arg.recovered
+		
+		var srb = out.find(({country}) => country === 'Serbia');
+        var srb_cases = srb.cases
+        var srb_deaths = srb.deaths
+        var srb_recovered = srb.recovered
+		
+		var dom = out.find(({country}) => country === 'Dominican Republic');
+        var dom_cases = dom.cases
+        var dom_deaths = dom.deaths
+        var dom_recovered = dom.recovered
+		
+		var dza = out.find(({country}) => country === 'Algeria');
+        var dza_cases = dza.cases
+        var dza_deaths = dza.deaths
+        var dza_recovered = dza.recovered
+		
+		var arm = out.find(({country}) => country === 'Armenia');
+        var arm_cases = arm.cases
+        var arm_deaths = arm.deaths
+        var arm_recovered = arm.recovered
+		
+		var kwt = out.find(({country}) => country === 'Kuwait');
+        var kwt_cases = kwt.cases
+        var kwt_deaths = kwt.deaths
+        var kwt_recovered = kwt.recovered
+		
+		var bgr = out.find(({country}) => country === 'Bulgaria');
+        var bgr_cases = bgr.cases
+        var bgr_deaths = bgr.deaths
+        var bgr_recovered = bgr.recovered
+		
+		var svk = out.find(({country}) => country === 'Slovakia');
+        var svk_cases = svk.cases
+        var svk_deaths = svk.deaths
+        var svk_recovered = svk.recovered
+		
+		var twn = out.find(({country}) => country === 'Taiwan');
+        var twn_cases = twn.cases
+        var twn_deaths = twn.deaths
+        var twn_recovered = twn.recovered
+		
+		var ury = out.find(({country}) => country === 'Uruguay');
+        var ury_cases = ury.cases
+        var ury_deaths = ury.deaths
+        var ury_recovered = ury.recovered
+		
+		var are = out.find(({country}) => country === 'UAE');
+        var are_cases = are.cases
+        var are_deaths = are.deaths
+        var are_recovered = are.recovered
+		
+		var ltu = out.find(({country}) => country === 'Lithuania');
+        var ltu_cases = ltu.cases
+        var ltu_deaths = ltu.deaths
+        var ltu_recovered = ltu.recovered
+		
+		var lva = out.find(({country}) => country === 'Latvia');
+        var lva_cases = lva.cases
+        var lva_deaths = lva.deaths
+        var lva_recovered = lva.recovered
+		
+		var cri = out.find(({country}) => country === 'Costa Rica');
+        var cri_cases = cri.cases
+        var cri_deaths = cri.deaths
+        var cri_recovered = cri.recovered
+		
+		var hun = out.find(({country}) => country === 'Hungary');
+        var hun_cases = hun.cases
+        var hun_deaths = hun.deaths
+        var hun_recovered = hun.recovered
+		
+		var bih = out.find(({country}) => country === 'Bosnia');
+        var bih_cases = bih.cases
+        var bih_deaths = bih.deaths
+        var bih_recovered = bih.recovered
+		
+		var mar = out.find(({country}) => country === 'Morocco');
+        var mar_cases = mar.cases
+        var mar_deaths = mar.deaths
+        var mar_recovered = mar.recovered
+		
+		var mkd = out.find(({country}) => country === 'Macedonia');
+        var mkd_cases = mkd.cases
+        var mkd_deaths = mkd.deaths
+        var mkd_recovered = mkd.recovered
+		
+		var vnm = out.find(({country}) => country === 'Vietnam');
+        var vnm_cases = vnm.cases
+        var vnm_deaths = vnm.deaths
+        var vnm_recovered = vnm.recovered
+		
+		var jor = out.find(({country}) => country === 'Jordan');
+        var jor_cases = jor.cases
+        var jor_deaths = jor.deaths
+        var jor_recovered = jor.recovered
+		
+		var nzl = out.find(({country}) => country === 'New Zealand');
+        var nzl_cases = nzl.cases
+        var nzl_deaths = nzl.deaths
+        var nzl_recovered = nzl.recovered
+		
+		var cyp = out.find(({country}) => country === 'Cyprus');
+        var cyp_cases = cyp.cases
+        var cyp_deaths = cyp.deaths
+        var cyp_recovered = cyp.recovered
+		
+		var mda = out.find(({country}) => country === 'Moldova');
+        var mda_cases = mda.cases
+        var mda_deaths = mda.deaths
+        var mda_recovered = mda.recovered
+		
+		var brn = out.find(({country}) => country === 'Brunei');
+        var brn_cases = brn.cases
+        var brn_deaths = brn.deaths
+        var brn_recovered = brn.recovered
+		
+		var alb = out.find(({country}) => country === 'Albania');
+        var alb_cases = alb.cases
+        var alb_deaths = alb.deaths
+        var alb_recovered = alb.recovered
+		
+		var lka = out.find(({country}) => country === 'Sri Lanka');
+        var lka_cases = lka.cases
+        var lka_deaths = lka.deaths
+        var lka_recovered = lka.recovered
+		
+		var khm = out.find(({country}) => country === 'Cambodia');
+        var khm_cases = khm.cases
+        var khm_deaths = khm.deaths
+        var khm_recovered = khm.recovered
+		
+		var ven = out.find(({country}) => country === 'Venezuela');
+        var ven_cases = ven.cases
+        var ven_deaths = ven.deaths
+        var ven_recovered = ven.recovered
+		
+		var blr = out.find(({country}) => country === 'Belarus');
+        var blr_cases = blr.cases
+        var blr_deaths = blr.deaths
+        var blr_recovered = blr.recovered
+		
+		var bfa = out.find(({country}) => country === 'Burkina Faso');
+        var bfa_cases = bfa.cases
+        var bfa_deaths = bfa.deaths
+        var bfa_recovered = bfa.recovered
+		
+		var tun = out.find(({country}) => country === 'Tunisia');
+        var tun_cases = tun.cases
+        var tun_deaths = tun.deaths
+        var tun_recovered = tun.recovered
+		
+		var ukr = out.find(({country}) => country === 'Ukraine');
+        var ukr_cases = ukr.cases
+        var ukr_deaths = ukr.deaths
+        var ukr_recovered = ukr.recovered
+		
+		var sen = out.find(({country}) => country === 'Senegal');
+        var sen_cases = sen.cases
+        var sen_deaths = sen.deaths
+        var sen_recovered = sen.recovered
+		
+		var omn = out.find(({country}) => country === 'Oman');
+        var omn_cases = omn.cases
+        var omn_deaths = omn.deaths
+        var omn_recovered = omn.recovered
+		
+		var aze = out.find(({country}) => country === 'Azerbaijan');
+        var aze_cases = aze.cases
+        var aze_deaths = aze.deaths
+        var aze_recovered = aze.recovered
+		
+		var kaz = out.find(({country}) => country === 'Kazakhstan');
+        var kaz_cases = kaz.cases
+        var kaz_deaths = kaz.deaths
+        var kaz_recovered = kaz.recovered
+		
+		var pse = out.find(({country}) => country === 'Palestine');
+        var pse_cases = pse.cases
+        var pse_deaths = pse.deaths
+        var pse_recovered = pse.recovered
+		
+		var cmr = out.find(({country}) => country === 'Cameroon');
+        var cmr_cases = cmr.cases
+        var cmr_deaths = cmr.deaths
+        var cmr_recovered = cmr.recovered
+		
+		var geo = out.find(({country}) => country === 'Georgia');
+        var geo_cases = geo.cases
+        var geo_deaths = geo.deaths
+        var geo_recovered = geo.recovered
+		
+		var tto = out.find(({country}) => country === 'Trinidad and Tobago');
+        var tto_cases = tto.cases
+        var tto_deaths = tto.deaths
+        var tto_recovered = tto.recovered
+		
+		var uzb = out.find(({country}) => country === 'Uzbekistan');
+        var uzb_cases = uzb.cases
+        var uzb_deaths = uzb.deaths
+        var uzb_recovered = uzb.recovered
+		
+		var afg = out.find(({country}) => country === 'Afghanistan');
+        var afg_cases = afg.cases
+        var afg_deaths = afg.deaths
+        var afg_recovered = afg.recovered
+		
+		var nga = out.find(({country}) => country === 'Nigeria');
+        var nga_cases = nga.cases
+        var nga_deaths = nga.deaths
+        var nga_recovered = nga.recovered
+		
+		var cub = out.find(({country}) => country === 'Cuba');
+        var cub_cases = cub.cases
+        var cub_deaths = cub.deaths
+        var cub_recovered = cub.recovered
+		
+		var bgd = out.find(({country}) => country === 'Bangladesh');
+        var bgd_cases = bgd.cases
+        var bgd_deaths = bgd.deaths
+        var bgd_recovered = bgd.recovered
+		
+		var bol = out.find(({country}) => country === 'Bolivia');
+        var bol_cases = bol.cases
+        var bol_deaths = bol.deaths
+        var bol_recovered = bol.recovered
+		
+		var hnd = out.find(({country}) => country === 'Honduras');
+        var hnd_cases = hnd.cases
+        var hnd_deaths = hnd.deaths
+        var hnd_recovered = hnd.recovered
+		
+		var civ = out.find(({country}) => country === "Côte d'Ivoire");
+        var civ_cases = civ.cases
+        var civ_deaths = civ.deaths
+        var civ_recovered = civ.recovered
+		
+		var gha = out.find(({country}) => country === 'Ghana');
+        var gha_cases = gha.cases
+        var gha_deaths = gha.deaths
+        var gha_recovered = gha.recovered
+		
+		var pry = out.find(({country}) => country === 'Paraguay');
+        var pry_cases = pry.cases
+        var pry_deaths = pry.deaths
+        var pry_recovered = pry.recovered
+		
+		var gtm = out.find(({country}) => country === 'Guatemala');
+        var gtm_cases = gtm.cases
+        var gtm_deaths = gtm.deaths
+        var gtm_recovered = gtm.recovered
+		
+		var guy = out.find(({country}) => country === 'Guyana');
+        var guy_cases = guy.cases
+        var guy_deaths = guy.deaths
+        var guy_recovered = guy.recovered
+		
+		var jam = out.find(({country}) => country === 'Jamaica');
+        var jam_cases = jam.cases
+        var jam_deaths = jam.deaths
+        var jam_recovered = jam.recovered
+		
+		var rwa = out.find(({country}) => country === 'Rwanda');
+        var rwa_cases = rwa.cases
+        var rwa_deaths = rwa.deaths
+        var rwa_recovered = rwa.recovered
+		
+		var guf = out.find(({country}) => country === 'French Guiana');
+        var guf_cases = guf.cases
+        var guf_deaths = guf.deaths
+        var guf_recovered = guf.recovered
+		
+		var tgo = out.find(({country}) => country === 'Togo');
+        var tgo_cases = tgo.cases
+        var tgo_deaths = tgo.deaths
+        var tgo_recovered = tgo.recovered
+		
+		var ken = out.find(({country}) => country === 'Kenya');
+        var ken_cases = ken.cases
+        var ken_deaths = ken.deaths
+        var ken_recovered = ken.recovered
+		
+		var kgz = out.find(({country}) => country === 'Kyrgyzstan');
+        var kgz_cases = kgz.cases
+        var kgz_deaths = kgz.deaths
+        var kgz_recovered = kgz.recovered
+		
+		var mdg = out.find(({country}) => country === 'Madagascar');
+        var mdg_cases = mdg.cases
+        var mdg_deaths = mdg.deaths
+        var mdg_recovered = mdg.recovered
+		
+		var tza = out.find(({country}) => country === 'Tanzania');
+        var tza_cases = tza.cases
+        var tza_deaths = tza.deaths
+        var tza_recovered = tza.recovered
+		
+		var eth = out.find(({country}) => country === 'Ethiopia');
+        var eth_cases = eth.cases
+        var eth_deaths = eth.deaths
+        var eth_recovered = eth.recovered
+		
+		var gnq = out.find(({country}) => country === 'Equatorial Guinea');
+        var gnq_cases = gnq.cases
+        var gnq_deaths = gnq.deaths
+        var gnq_recovered = gnq.recovered
+		
+		var gab = out.find(({country}) => country === 'Gabon');
+        var gab_cases = gab.cases
+        var gab_deaths = gab.deaths
+        var gab_recovered = gab.recovered
+		
+		var hti = out.find(({country}) => country === 'Haiti');
+        var hti_cases = hti.cases
+        var hti_deaths = hti.deaths
+        var hti_recovered = hti.recovered
+		
+		var bhs = out.find(({country}) => country === 'Bahamas');
+        var bhs_cases = bhs.cases
+        var bhs_deaths = bhs.deaths
+        var bhs_recovered = bhs.recovered
+		
+		var grl = out.find(({country}) => country === 'Greenland');
+        var grl_cases = grl.cases
+        var grl_deaths = grl.deaths
+        var grl_recovered = grl.recovered
+		
+		var cod = out.find(({country}) => country === 'Congo');
+        var cod_cases = cod.cases
+        var cod_deaths = cod.deaths
+        var cod_recovered = cod.recovered
+		
+		var slv = out.find(({country}) => country === 'El Salvador');
+        var slv_cases = slv.cases
+        var slv_deaths = slv.deaths
+        var slv_recovered = slv.recovered
+		
+		var fji = out.find(({country}) => country === 'Fiji');
+        var fji_cases = fji.cases
+        var fji_deaths = fji.deaths
+        var fji_recovered = fji.recovered
+		
+		var lbr = out.find(({country}) => country === 'Liberia');
+        var lbr_cases = lbr.cases
+        var lbr_deaths = lbr.deaths
+        var lbr_recovered = lbr.recovered
+		
+		var nam = out.find(({country}) => country === 'Namibia');
+        var nam_cases = nam.cases
+        var nam_deaths = nam.deaths
+        var nam_recovered = nam.recovered
+		
+		var zmb = out.find(({country}) => country === 'Zambia');
+        var zmb_cases = zmb.cases
+        var zmb_deaths = zmb.deaths
+        var zmb_recovered = zmb.recovered
+		
+		var zwe = out.find(({country}) => country === 'Zimbabwe');
+        var zwe_cases = zwe.cases
+        var zwe_deaths = zwe.deaths
+        var zwe_recovered = zwe.recovered
+		
+		var sdn = out.find(({country}) => country === 'Sudan');
+        var sdn_cases = sdn.cases
+        var sdn_deaths = sdn.deaths
+        var sdn_recovered = sdn.recovered
+		
+		var npl = out.find(({country}) => country === 'Nepal');
+        var npl_cases = npl.cases
+        var npl_deaths = npl.deaths
+        var npl_recovered = npl.recovered
+		
+		var ago = out.find(({country}) => country === 'Angola');
+        var ago_cases = ago.cases
+        var ago_deaths = ago.deaths
+        var ago_recovered = ago.recovered
+		
+		var ben = out.find(({country}) => country === 'Benin');
+        var ben_cases = ben.cases
+        var ben_deaths = ben.deaths
+        var ben_recovered = ben.recovered
+		
+		var btn = out.find(({country}) => country === 'Bhutan');
+        var btn_cases = btn.cases
+        var btn_deaths = btn.deaths
+        var btn_recovered = btn.recovered
+		
+		var gin = out.find(({country}) => country === 'Guinea');
+        var gin_cases = gin.cases
+        var gin_deaths = gin.deaths
+        var gin_recovered = gin.recovered
+		
+		var mrt = out.find(({country}) => country === 'Mauritania');
+        var mrt_cases = mrt.cases
+        var mrt_deaths = mrt.deaths
+        var mrt_recovered = mrt.recovered
+		
+		var nic = out.find(({country}) => country === 'Nicaragua');
+        var nic_cases = nic.cases
+        var nic_deaths = nic.deaths
+        var nic_recovered = nic.recovered
+		
+		var ner = out.find(({country}) => country === 'Niger');
+        var ner_cases = ner.cases
+        var ner_deaths = ner.deaths
+        var ner_recovered = ner.recovered
+		
+		var gmb = out.find(({country}) => country === 'Gambia');
+        var gmb_cases = gmb.cases
+        var gmb_deaths = gmb.deaths
+        var gmb_recovered = gmb.recovered
+		
+		var tcd = out.find(({country}) => country === 'Chad');
+        var tcd_cases = tcd.cases
+        var tcd_deaths = tcd.deaths
+        var tcd_recovered = tcd.recovered
+		
+		var dji = out.find(({country}) => country === 'Djibouti');
+        var dji_cases = dji.cases
+        var dji_deaths = dji.deaths
+        var dji_recovered = dji.recovered
+		
+		var eri = out.find(({country}) => country === 'Eritrea');
+        var eri_cases = eri.cases
+        var eri_deaths = eri.deaths
+        var eri_recovered = eri.recovered
+		
+		var moz = out.find(({country}) => country === 'Mozambique');
+        var moz_cases = moz.cases
+        var moz_deaths = moz.deaths
+        var moz_recovered = moz.recovered
+		
+		var png = out.find(({country}) => country === 'Papua New Guinea');
+        var png_cases = png.cases
+        var png_deaths = png.deaths
+        var png_recovered = png.recovered
+		
+		var som = out.find(({country}) => country === 'Somalia');
+        var som_cases = som.cases
+        var som_deaths = som.deaths
+        var som_recovered = som.recovered
+		
+		var syr = out.find(({country}) => country === 'Syrian Arab Republic');
+        var syr_cases = syr.cases
+        var syr_deaths = syr.deaths
+        var syr_recovered = syr.recovered
+		
+		var tls = out.find(({country}) => country === 'Timor-Leste');
+        var tls_cases = tls.cases
+        var tls_deaths = tls.deaths
+        var tls_recovered = tls.recovered
+		
+		var uga = out.find(({country}) => country === 'Uganda');
+        var uga_cases = uga.cases
+        var uga_deaths = uga.deaths
+        var uga_recovered = uga.recovered
+		
+		var mng = out.find(({country}) => country === 'Mongolia');
+        var mng_cases = mng.cases
+        var mng_deaths = mng.deaths
+        var mng_recovered = mng.recovered
+	
+	
+	// example data from server
+    var series = [
+        
+
+		["TUR", tur_cases, tur_deaths, tur_recovered],
+        ["CHN", chn_cases, chn_deaths, chn_recovered],
+        ["ITA", ita_cases, ita_deaths, ita_recovered],
+        ["ITA", ita_cases, ita_deaths, ita_recovered],
+        ["USA", usa_cases, usa_deaths, usa_recovered],
+		["ESP", esp_cases, esp_deaths, esp_recovered],
+		["DEU", deu_cases, deu_deaths, deu_recovered],
+		["IRN", irn_cases, irn_deaths, irn_recovered],
+		["FRA", fra_cases, fra_deaths, fra_recovered],
+		["KOR", kor_cases, kor_deaths, kor_recovered],
+		["CHE", che_cases, che_deaths, che_recovered],
+		["GBR", gbr_cases, gbr_deaths, gbr_recovered],
+		["NLD", nld_cases, nld_deaths, nld_recovered],
+		["AUT", aut_cases, aut_deaths, aut_recovered],
+		["BEL", bel_cases, bel_deaths, bel_recovered],
+		["NOR", nor_cases, nor_deaths, nor_recovered],
+		["SWE", swe_cases, swe_deaths, swe_recovered],
+		["PRT", prt_cases, prt_deaths, prt_recovered],
+		["BRA", bra_cases, bra_deaths, bra_recovered],
+		["CAN", can_cases, can_deaths, can_recovered],
+		["DNK", dnk_cases, dnk_deaths, dnk_recovered],
+		["AUS", aus_cases, aus_deaths, aus_recovered],
+		["MYS", mys_cases, mys_deaths, mys_recovered],
+		["CZE", cze_cases, cze_deaths, cze_recovered],
+		["JPN", jpn_cases, jpn_deaths, jpn_recovered],
+		["ISR", isr_cases, isr_deaths, isr_recovered],
+		["IRL", irl_cases, irl_deaths, irl_recovered],
+		["LUX", lux_cases, lux_deaths, lux_recovered],
+		["ECU", ecu_cases, ecu_deaths, ecu_recovered],
+		["PAK", pak_cases, pak_deaths, pak_recovered],
+		["POL", pol_cases, pol_deaths, pol_recovered],
+		["CHL", chl_cases, chl_deaths, chl_recovered],
+		["FIN", fin_cases, fin_deaths, fin_recovered],
+		["GRC", grc_cases, grc_deaths, grc_recovered],
+		["THA", tha_cases, tha_deaths, tha_recovered],
+		["ISL", isl_cases, isl_deaths, isl_recovered],
+		["IDN", idn_cases, idn_deaths, idn_recovered],
+		["SAU", sau_cases, sau_deaths, sau_recovered],
+		["QAT", qat_cases, qat_deaths, qat_recovered],
+		["ROU", rou_cases, rou_deaths, rou_recovered],
+		["SVN", svn_cases, svn_deaths, svn_recovered],
+		["IND", ind_cases, ind_deaths, ind_recovered],
+		["PHL", phl_cases, phl_deaths, phl_recovered],
+		["RUS", rus_cases, rus_deaths, rus_recovered],
+		["PER", per_cases, per_deaths, per_recovered],
+		["EGY", egy_cases, egy_deaths, egy_recovered],
+		["EST", est_cases, est_deaths, est_recovered],
+		["ZAF", zaf_cases, zaf_deaths, zaf_recovered],
+		["HRV", hrv_cases, hrv_deaths, hrv_recovered],
+		["MEX", mex_cases, mex_deaths, mex_recovered],
+		["LBN", lbn_cases, lbn_deaths, lbn_recovered],
+		["PAN", pan_cases, pan_deaths, pan_recovered],
+		["IRQ", irq_cases, irq_deaths, irq_recovered],
+		["COL", col_cases, col_deaths, col_recovered],
+		["ARG", arg_cases, arg_deaths, arg_recovered],
+		["SRB", srb_cases, srb_deaths, srb_recovered],
+		["DOM", dom_cases, dom_deaths, dom_recovered],
+		["DZA", dza_cases, dza_deaths, dza_recovered],
+		["ARM", arm_cases, arm_deaths, arm_recovered],
+		["KWT", kwt_cases, kwt_deaths, kwt_recovered],
+		["BGR", bgr_cases, bgr_deaths, bgr_recovered],
+		["SVK", svk_cases, svk_deaths, svk_recovered],
+		["TWN", twn_cases, twn_deaths, twn_recovered],
+		["URY", ury_cases, ury_deaths, ury_recovered],
+		["ARE", are_cases, are_deaths, are_recovered],
+		["LTU", ltu_cases, ltu_deaths, ltu_recovered],
+		["LVA", lva_cases, lva_deaths, lva_recovered],
+		["CRI", cri_cases, cri_deaths, cri_recovered],
+		["HUN", hun_cases, hun_deaths, hun_recovered],
+		["BIH", bih_cases, bih_deaths, bih_recovered],
+		["MAR", mar_cases, mar_deaths, mar_recovered],
+		["MKD", mkd_cases, mkd_deaths, mkd_recovered],
+        ["VNM", vnm_cases, vnm_deaths, vnm_recovered],
+		["JOR", jor_cases, jor_deaths, jor_recovered],
+		["NZL", nzl_cases, nzl_deaths, nzl_recovered],
+		["CYP", cyp_cases, cyp_deaths, cyp_recovered],
+		["MDA", mda_cases, mda_deaths, mda_recovered],
+		["BRN", brn_cases, brn_deaths, brn_recovered],
+		["ALB", alb_cases, alb_deaths, alb_recovered],
+		["LKA", lka_cases, lka_deaths, lka_recovered],
+		["KHM", khm_cases, khm_deaths, khm_recovered],
+		["VEN", ven_cases, ven_deaths, ven_recovered],
+		["BLR", blr_cases, blr_deaths, blr_recovered],
+		["BFA", bfa_cases, bfa_deaths, bfa_recovered],
+		["TUN", tun_cases, tun_deaths, tun_recovered],
+		["UKR", ukr_cases, ukr_deaths, ukr_recovered],
+		["SEN", sen_cases, sen_deaths, sen_recovered],
+		["OMN", omn_cases, omn_deaths, omn_recovered],
+		["AZE", aze_cases, aze_deaths, aze_recovered],
+		["KAZ", kaz_cases, kaz_deaths, kaz_recovered],
+		["PSE", pse_cases, pse_deaths, pse_recovered],
+		["CMR", cmr_cases, cmr_deaths, cmr_recovered],
+		["GEO", geo_cases, geo_deaths, geo_recovered],
+		["TTO", tto_cases, tto_deaths, tto_recovered],
+		["UZB", uzb_cases, uzb_deaths, uzb_recovered],
+		["AFG", afg_cases, afg_deaths, afg_recovered],
+		["NGA", nga_cases, nga_deaths, nga_recovered],
+		["CUB", cub_cases, cub_deaths, cub_recovered],
+		["BGD", bgd_cases, bgd_deaths, bgd_recovered],
+		["BOL", bol_cases, bol_deaths, bol_recovered],
+		["HND", hnd_cases, hnd_deaths, hnd_recovered],
+		["CIV", civ_cases, civ_deaths, civ_recovered],
+		["GHA", gha_cases, gha_deaths, gha_recovered],
+		["PRY", pry_cases, pry_deaths, pry_recovered],
+		["GTM", gtm_cases, gtm_deaths, gtm_recovered],
+		["GUY", guy_cases, guy_deaths, guy_recovered],
+		["JAM", jam_cases, jam_deaths, jam_recovered],
+		["RWA", rwa_cases, rwa_deaths, rwa_recovered],
+		["GUF", guf_cases, guf_deaths, guf_recovered],
+		["TGO", tgo_cases, tgo_deaths, tgo_recovered],
+		["KEN", ken_cases, ken_deaths, ken_recovered],
+		["KGZ", kgz_cases, kgz_deaths, kgz_recovered],
+		["MDG", mdg_cases, mdg_deaths, mdg_recovered],
+		["TZA", tza_cases, tza_deaths, tza_recovered],
+		["ETH", eth_cases, eth_deaths, eth_recovered],
+		["GNQ", gnq_cases, gnq_deaths, gnq_recovered],
+		["GAB", gab_cases, gab_deaths, gab_recovered],
+		["HTI", hti_cases, hti_deaths, hti_recovered],
+		["BHS", bhs_cases, bhs_deaths, bhs_recovered],
+		["GRL", grl_cases, grl_deaths, grl_recovered],
+		["COD", cod_cases, cod_deaths, cod_recovered],
+		["SLV", slv_cases, slv_deaths, slv_recovered],
+		["FJI", fji_cases, fji_deaths, fji_recovered],
+		["LBR", lbr_cases, lbr_deaths, lbr_recovered],
+		["NAM", nam_cases, nam_deaths, nam_recovered],
+		["ZMB", zmb_cases, zmb_deaths, zmb_recovered],
+		["ZWE", zwe_cases, zwe_deaths, zwe_recovered],
+		["SDN", sdn_cases, sdn_deaths, sdn_recovered],
+		["NPL", npl_cases, npl_deaths, npl_recovered],
+		["AGO", ago_cases, ago_deaths, ago_recovered],
+		["BEN", ben_cases, ben_deaths, ben_recovered],
+		["BTN", btn_cases, btn_deaths, btn_recovered],
+		["GIN", gin_cases, gin_deaths, gin_recovered],
+		["MRT", mrt_cases, mrt_deaths, mrt_recovered],
+		["NIC", nic_cases, nic_deaths, nic_recovered],
+		["NER", ner_cases, ner_deaths, ner_recovered],
+		["GMB", gmb_cases, gmb_deaths, gmb_recovered],
+		["TCD", tcd_cases, tcd_deaths, tcd_recovered],
+		["DJI", dji_cases, dji_deaths, dji_recovered],
+		["ERI", eri_cases, eri_deaths, eri_recovered],
+		["MOZ", moz_cases, moz_deaths, moz_recovered],
+		["PNG", png_cases, png_deaths, png_recovered],
+		["SOM", som_cases, som_deaths, som_recovered],
+		["SYR", syr_cases, syr_deaths, syr_recovered],
+		["TLS", tls_cases, tls_deaths, tls_recovered],
+		["UGA", uga_cases, uga_deaths, uga_recovered],
+		["MNG", mng_cases, mng_deaths, mng_recovered],
+		
+		
+    
+    ];
+
+
+    // Datamaps expect data in format:
+    // { "USA": { "fillColor": "#42a844", numberOfWhatever: 75},
+    //   "FRA": { "fillColor": "#8dc386", numberOfWhatever: 43 } }
+    var dataset = {};
+
+    // We need to colorize every country based on "numberOfWhatever"
+    // colors should be uniq for every value.
+    // For this purpose we create palette(using min/max series-value)
+    var onlyValues = series.map(function(obj){ return obj[1]; });
+    var minValue = Math.min.apply(null, onlyValues),
+            maxValue = Math.max.apply(null, onlyValues);
+
+    // create color palette function
+    // color can be whatever you wish
+    var paletteScale = d3.scale.linear()
+            .domain([minValue,maxValue])
+            .range(["#ffb3b3","#800000"]); // red color
+
+    // fill dataset in appropriate format
+    series.forEach(function(item){ //
+        // item example value ["USA", 70]
+        var iso = item[0],
+                value = item[1],
+                value2 = item[2],
+                value3 = item[3];
+        dataset[iso] = { enfekte: value, olen: value2, iyilesen: value3, fillColor: paletteScale(value)};
+    });
+
+    // render map
+    new Datamap({
+        element: document.getElementById('map'),
+        projection: 'mercator', // big world map
+        // countries don't listed in dataset will be painted with this color
+        fills: { defaultFill: '#e6e6e6' },
+        data: dataset,
+        geographyConfig: {
+            borderColor: '#85a3e0',
+            highlightBorderWidth: 2,
+            // don't change color on mouse hover
+            highlightFillColor: function(geo) {
+                return geo['fillColor'] || '#9ab3e5';
+            },
+            // only change border
+            highlightBorderColor: '#9ab3e5',
+            // show desired information in tooltip
+            popupTemplate: function(geo, data) {
+                // don't show tooltip if country don't present in dataset
+                if (!data) { return ; }
+                // tooltip content
+                return ['<div class="hoverinfo">',
+                    '<center><span style="font-weight: bold; color: #556691; font-size:32px">', geo.properties.name, '</span><br>',
+                    '<span style="text-align: center; color: #e6ac00; font-size:16px">Enfekte 😷 ', data.enfekte, '</span><br>',
+                    '<span style="text-align: center; color: #c32232; font-size:16px">Ölen ☠️ ', data.olen, '</span><br>',
+                    '<span style="text-align: center; color: #28a745; font-size:16px">İyileşen ❤️ ', data.iyilesen, '</span><center>',
+                    '</div>'].join('');
+            }
+        }
+    })
+     
+         });
+            })();  
+</script>       
+        
+      
+    </body>
+</html>   
